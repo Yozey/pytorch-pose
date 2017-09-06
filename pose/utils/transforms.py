@@ -156,6 +156,6 @@ def crop(img, center, scale, res, rot=0):
         # Remove padding
         new_img = scipy.misc.imrotate(new_img, rot)
         new_img = new_img[pad:-pad, pad:-pad]
-
-    new_img = im_to_torch(scipy.misc.imresize(new_img, res))
+    new_img = scipy.misc.imresize(new_img, res)
+    new_img = im_to_torch(new_img)
     return new_img
